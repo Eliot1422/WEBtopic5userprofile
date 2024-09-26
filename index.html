@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>user profile</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>email</th>
+                <th>dateOfBirth</th>
+                <th>address</th>
+                <th>preferences</th>
+            </tr>
+        </thead>
+        <tbody id="user-profiles">
+        </tbody>
+    </table>
+
+    <script>
+        //Getting JSON Data
+        fetch('userProfiles.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Fetch error: ' + response.status);
+                return response.json();
+            })
+            .then(profiles => {
+                const userList = document.getElementById('user-profiles');
+
+                profiles.forEach(profile => {
+                    const address = `${profile.address.street}, ${profile.address.city}, ${profile.address.state}, ${profile.address.zipCode}`;
+                    const preferences = `
+                    theme: ${profile.preferences.theme}<br>
+                    language: ${profile.preferences.language}<br>
+                    notifications: ${profile.preferences.notifications}<br>
+                    subscription: ${profile.preferences.subscription ? 'YES' : 'NO'}
+                `;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <td>${profile.firstName}</td>
+                    <td>${profile.lastName}</td>
+                    <td>${profile.email}</td>
+                    <td>${profile.dateOfBirth}</td>
+                    <td>${address}</td>
+                    <td>${preferences}</td>
+                `;
+                    userList.appendChild(row);
+                });
+            })
+            .catch(err => console.error('Fetch error: ' + err.message));
+    </script>
+
+</body>
+
+</html>

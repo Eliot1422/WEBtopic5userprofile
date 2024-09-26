@@ -1,0 +1,56 @@
+[
+    {
+        "firstName": "Eliot",
+        "lastName": "Chen",
+        "email": "1422183961@qq.com",
+        "dateOfBirth": "2004-10-19",
+        "address": {
+            "street": "123 Street St",
+            "city": "Langfang",
+            "state": "Hebei",
+            "zipCode": "62701"
+        },
+        "preferences": {
+            "theme": "dark",
+            "language": "English",
+            "notifications": true,
+            "subscription": true
+        }
+    },
+    {
+        "firstName": "Bob",
+        "lastName": "Smith",
+        "email": "bob.smith@example.com",
+        "dateOfBirth": "1985-11-23",
+        "address": {
+            "street": "456 Oak St",
+            "city": "Metropolis",
+            "state": "NY",
+            "zipCode": "10001"
+        },
+        "preferences": {
+            "theme": "light",
+            "language": "Spanish",
+            "notifications": false,
+            "subscription": false
+        }
+    },
+    {
+        "firstName": "Charlie",
+        "lastName": "Brown",
+        "email": "charlie.brown@example.com",
+        "dateOfBirth": "1992-08-30",
+        "address": {
+            "street": "789 Pine St",
+            "city": "Gotham",
+            "state": "NJ",
+            "zipCode": "07001"
+        },
+        "preferences": {
+            "theme": "dark",
+            "language": "French",
+            "notifications": true,
+            "subscription": true
+        }
+    }
+]
